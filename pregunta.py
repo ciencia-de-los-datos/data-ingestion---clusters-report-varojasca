@@ -15,14 +15,11 @@ import re
 
 def ingest_data():
 
-#Se abre el archivo 
     with open('clusters_report.txt') as archivo:
         row = archivo.readlines()
 
-#Se eliminan las primeras filas
     row=row[4:]
 
-#Con los datos de cada clúster se hace una lista
     clusters = []
     cluster = [0, 0, 0, '']
 
