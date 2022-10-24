@@ -28,7 +28,7 @@ def ingest_data():
 
     for fila in row:
         if re.match('^ +[0-9]+ +', fila):
-            number, quantity, percentage, words = fila.split()
+            number, quantity, percentage, *words = fila.split()
             cluster[0] = int(number)
             cluster[1] = int(quantity)
             cluster[2] = float(percentage.replace(',','.')) 
