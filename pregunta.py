@@ -26,26 +26,23 @@ def ingest_data():
     clusters = []
     cluster = [0, 0, 0, '']
 
-    for r in row:
-        if re.match('^ +[0-9]+ +', r):
-            number, quantity, percentage, words = r.split()
-      
-     
+    for fila in row:
+        if re.match('^ +[0-9]+ +', fila):
+            number, quantity, percentage, words = fila.split()
             cluster[0] = int(number)
             cluster[1] = int(quantity)
             cluster[2] = float(percentage.replace(',','.')) 
 
-      
             words.pop(0) 
             words = ' '.join(words) 
             cluster[3] += words
 
-        elif re.match('^ +[a-z]', r):
-            words = r.split()
+        elif re.match('^ +[a-z]', fila):
+            words = fila.split()
             words = ' '.join(words) 
             cluster[3] += ' ' + words 
 
-        elif re.match('^\n', r) or re.match('^ +$', r):
+        elif re.match('^\n', fila) or re.match('^ +$', fila):
             cluster[3] = cluster[3].replace('.', '') 
             clusters.append(cluster) 
             cluster = [0, 0, 0, ''] 
