@@ -45,7 +45,7 @@ def ingest_data():
             words = ' '.join(words) 
             cluster[3] += ' ' + words 
 
-         elif re.match('^\n', r) or re.match('^ +$', r):
+        elif re.match('^\n', r) or re.match('^ +$', r):
             cluster[3] = cluster[3].replace('.', '') 
             clusters.append(cluster) 
             cluster = [0, 0, 0, ''] 
