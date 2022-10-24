@@ -41,7 +41,7 @@ def ingest_data():
             cluster[3] += words
 
         elif re.match('^ +[a-z]', r):
-             words = r.split()
+            words = r.split()
             words = ' '.join(words) 
             cluster[3] += ' ' + words 
 
